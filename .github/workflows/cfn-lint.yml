@@ -9,3 +9,4 @@ jobs:
       - uses: scottbrenner/cfn-lint-action@v2   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
         with:
           command: cfn-lint -t ././EC2.yaml
+      - run: cfn-lint --version
