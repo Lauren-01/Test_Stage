@@ -1,0 +1,11 @@
+name: Setup Cloud Formation Linter with latest version
+run-name: ${{ github.actor }} is checking setting up cfn-lint
+on: [push]
+jobs:
+  cloudformation-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: scottbrenner/cfn-lint-action@v2   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
+        with:
+          command: cfn-lint -t ././EC2.yaml
