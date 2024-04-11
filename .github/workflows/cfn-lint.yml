@@ -10,3 +10,4 @@ jobs:
         with:
           command: cfn-lint -t ././EC2.yaml
       - run: cfn-lint --version
+      - run: cfn-lint ../../*
