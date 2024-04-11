@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'CloudFormation Template for Ubuntu EC2 with Apache Web Server'
 
-Resources:
+Resourc es:
   MyEC2Instance:
     Type: 'AWS::EC2::Instance'
     Metadata:
