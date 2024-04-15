@@ -1,6 +1,10 @@
 name: Setup Cloud Formation Linter with latest version
-run-name: ${{ github.actor }} is checking setting up cfn-lint
-on: [push]
+run-name: ${{ github.actor }} is checking the code with cfn-lint
+on: 
+  [push]
+  # push:
+  #   branches: [main] #new commits on these branches always trigger
+  # pull_request:
 jobs:
   cloudformation-linter:
     runs-on: ubuntu-latest
@@ -8,6 +12,32 @@ jobs:
       - uses: actions/checkout@v4
       - uses: scottbrenner/cfn-lint-action@v2   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
         with:
-          command: cfn-lint -t ././EC2.yaml
+          command: cfn-lint -t ././Templates/EC2.yaml # -a for custom rules
       # - run: cfn-lint --version
       # - run: cfn-lint $GITHUB_WORKSPACE/EC2.yaml
+
+
+
+
+# ---
+# name: cloudar-checks
+# on: # yamllint disable-line rule:truthy
+#   push:
+#     branches: [main]  # new commits on these branches always trigger
+#   pull_request:  # for other branches we only trigger on a pull request
+# jobs:
+#   cloudar-mandatory:  # keep this name, and use it as a required status check
+#     runs-on: ubuntu-latest
+#     steps: [uses: WeAreCloudar/ga-cloudar-mandatory@v1]
+#   cloudar-recommended:  # keep this name, and optionally use it as a required status check
+#     runs-on: ubuntu-latest
+#     steps: [uses: WeAreCloudar/ga-cloudar-recommended@v1]
+#   pre-commit:
+#     runs-on: ubuntu-latest
+#     env:
+#       # there is no git config (email) in an action, this will make pre-commit skip it.
+#       SKIP: check-git-config-email
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-python@v5
+#       - uses: pre-commit/action@v3.0.1  # this runs all checks and includes caching
