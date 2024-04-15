@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: scottbrenner/cfn-lint-action@v2   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
         with:
-          command: cfn-lint -t ././Templates/EC2.yaml # -a for custom rules
+          command: cfn-lint -t ././templates/EC2.yaml # -a for custom rules
       # - run: cfn-lint --version
       # - run: cfn-lint $GITHUB_WORKSPACE/EC2.yaml
 
