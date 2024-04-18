@@ -1,0 +1,71 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Testing CloudFormation and CFN-Lint 
+Resources:
+  MyS3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+        BucketName: cloudar-bucket
+        VersioningConfiguration:
+            Status: Enabled
+        LoggingConfiguration:
+            DestinationBucketName: myloggingBucket
+        BucketEncryption:
+            ServerSideEncryptionConfiguration:
+                - ServerSideEncryptionByDefault:
+                    SSEAlgorithm: AES256
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          IgnorePublicAcls: true
+          BlockPublicPolicy: true
+          RestrictPublicBuckets: true
+
+  
+  MyS3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref MyS3Bucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal: 
+              AWS: "arn:aws:iam::123456789012:root"  # chat gpt laten maken, werkt ook als er bv aws staat
+            Action: 
+              - s3:GetObject
+            Resource: !Sub arn:aws:s3:::${MyS3Bucket}/*
+
+
+  MyEC2Instance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+        InstanceType: t2.micro
+        ImageId: ami-0578b5d25268a4462
+
+  MyVPC:
+    Type: 'AWS::EC2::VPC'
+    Metadata:
+      # cfn_nag:
+      #   rules_to_suppress:
+      #     - id: W60
+      #       reason: "I do not know what it is."
+    Properties:
+        CidrBlock: 10.0.0.0/16
+        EnableDnsSupport: 'true'
+        EnableDnsHostnames: 'true'
+        Tags:
+        - Key: Name
+          Value: cloudar-VPC
+
+  FlowLog:
+    Type: 'AWS::EC2::FlowLog'
+    Properties:
+        LogDestinationType: cloud-watch-logs
+        LogGroupName: MyLogGroup
+        ResourceId: MyVPC
+        ResourceType: VPC
+        TrafficType: ALL
+
+# Outputs:
+#   BucketNameOutput:
+#     Description: 'Name of the created bucket'
+#     Value: !Ref MyS3Bucket
