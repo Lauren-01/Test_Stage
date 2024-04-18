@@ -1,10 +1,10 @@
 name: Setup Cloud Formation Linter with latest version
 run-name: ${{ github.actor }} is checking the code with cfn-lint
 on: 
-  [push]
-  # push:
-  #   branches: [main] #new commits on these branches always trigger
-  # pull_request:
+  # [push]
+  push:
+    branches: [main] #new commits on these branches always trigger
+  pull_request:
 jobs:
   cloudformation-linter:
     runs-on: ubuntu-latest
