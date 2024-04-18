@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: grolston/guard-action@v2   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
+      - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/marketplace/actions/cfn-lint-action
         with:
           data_directory: './cloudformation/'
           rule_set: "cis-aws-benchmark-level-1"
