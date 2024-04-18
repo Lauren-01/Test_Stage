@@ -1,0 +1,4 @@
+AWS::EC2::Instance InstanceType == "t2.micro" ERROR E9999 'InstanceType is not t2.micro'
+AWS::EC2::Instance InstanceType != "t2.micro" ERROR E9998 "InstanceType is t2.micro"
+AWS::S3::Bucket BucketName == "^cloudar-.+" ERROR E9899 "BucketName should start with cloudar-"
+AWS::S3::Bucket VersioningConfiguration.Status REGEX_MATCH "Enabled" ERROR E9898 "Versioning should be enabled!"
