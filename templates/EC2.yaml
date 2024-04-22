@@ -14,7 +14,7 @@ Resources:
           - id: W9
             reason: "This is a public facing ELB and ingress from the internet should be permitted."
     Properties:
-      InstanceType: 't2.micro'
+      InstanceType: 't2.nano'
       ImageId: 'ami-0c55b159cbfafe1f0'  # Ubuntu 20.04 LTS AMI
       KeyName: 'YourKeyPairName'  # Replace with your key pair name
       UserData:
