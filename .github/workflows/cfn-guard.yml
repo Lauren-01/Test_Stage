@@ -22,7 +22,7 @@ jobs:
         run: "./scripts/GuardScript.sh"
       
       - name: echo path
-        run: "echo $PATH"
+        run: "export PATH=~/.guard/bin:$PATH"
 
       - name: check version CFN-Guard
         run: "cfn-guard --version"
