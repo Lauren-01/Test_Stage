@@ -25,7 +25,7 @@ jobs:
         run: "export PATH=~/.guard/bin:$PATH"
 
       - name: check version CFN-Guard
-        run: "cfn-guard --version"
+        run: "~/.guard/bin/cfn-guard --version"
      
       - name: Github Action test
         run: "cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
