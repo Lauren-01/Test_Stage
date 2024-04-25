@@ -12,11 +12,11 @@ jobs:
       - uses: actions/checkout@v4
       # - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
       #   with:
-      #     data_directory: 'templates/'
+      #     data_directory: './templates/'
       #     rule_set: "cis-aws-benchmark-level-1"
 
       - name: Start CFN-Guard
-        run: ".github/customrules/workflows/GuardScript.sh"
+        run: "./.github/customrules/workflows/GuardScript.sh"
 
       # - uses: grolston/guard-action@main
         # name: Github Action test
