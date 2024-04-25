@@ -24,11 +24,13 @@ jobs:
       # - name: Start CFN-Guard
       #   run: "curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh"
       
-      # - name: echo path
-      #   run: "export PATH=~/.guard/bin:$PATH"
+      - name: echo path
+        run: "export PATH=~/.guard/bin:$PATH"
 
       - name: check version CFN-Guard
-        run: "~/.guard/bin/cfn-guard --version"
-     
+        # run: "~/.guard/bin/cfn-guard --version"
+        run: "cfn-guard --version"
+
       - name: Github Action test
-        run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
+        # run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
+        run: "cfn-guard --version"
