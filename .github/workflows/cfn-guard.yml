@@ -15,6 +15,9 @@ jobs:
       #     data_directory: './././templates/'
       #     rule_set: "cis-aws-benchmark-level-1"
 
+      - name: Start CFN-Guard
+        run: "./GuardScript.sh"
+
       - #uses: grolston/guard-action@main
         name: Github Action test
         run: "cfn-guard validate --data ./././templates/ --rules ./customrules/cfn-guard/"
