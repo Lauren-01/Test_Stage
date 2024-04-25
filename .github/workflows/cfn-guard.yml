@@ -21,6 +21,7 @@ jobs:
           export PATH=${PATH}:~/.guard/bin
           echo $PATH
           cfn-guard --version
+          cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/
 
       # - name: export path
       #   run: export PATH=${PATH}:~/.guard/bin
@@ -32,10 +33,9 @@ jobs:
       #   run: env
       
 
-      - name: check version CFN-Guard
-        # run: "~/.guard/bin/cfn-guard --version"
-        run: cfn-guard --version
+      # - name: check version CFN-Guard
+      #   # run: "~/.guard/bin/cfn-guard --version"
+      #   run: cfn-guard --version
 
-      - name: Github Action test
-        run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
-        # run: "cfn-guard --version"
+      # - name: Github Action test
+        # run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
