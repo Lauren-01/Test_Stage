@@ -19,6 +19,9 @@ jobs:
         run: "curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh"
       
       - name: echo path
+        run: echo $PATH
+
+      - name: run path
         run: export PATH=~/.guard/bin:$PATH
 
       - name: check version CFN-Guard
