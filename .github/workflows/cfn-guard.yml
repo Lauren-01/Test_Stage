@@ -15,8 +15,8 @@ jobs:
       #     data_directory: './templates/'
       #     rule_set: "cis-aws-benchmark-level-1"
 
-      # - name: Grant Execute Permissions
-      #   run: chmod +x ./scripts/GuardScript.sh
+      - name: Grant Execute Permissions
+        run: chmod +x ./scripts/GuardScript.sh
 
       - name: Start CFN-Guard
         run: "./scripts/GuardScript.sh"
