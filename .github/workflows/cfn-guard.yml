@@ -19,10 +19,13 @@ jobs:
       #   run: chmod +x ./scripts/GuardScript.sh
 
       - name: Start CFN-Guard
-        run: "curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh"
+        run: "./scripts/GuardScript.sh"
+
+      # - name: Start CFN-Guard
+      #   run: "curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh"
       
-      - name: echo path
-        run: "export PATH=~/.guard/bin:$PATH"
+      # - name: echo path
+      #   run: "export PATH=~/.guard/bin:$PATH"
 
       - name: check version CFN-Guard
         run: "~/.guard/bin/cfn-guard --version"
