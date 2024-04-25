@@ -19,7 +19,7 @@ jobs:
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
       
       - name: export path
-        run: export PATH=~/.guard/bin:$PATH
+        run: export PATH=${PATH}:~/.guard/bin
       
       - name: echo path
         run: echo $PATH
