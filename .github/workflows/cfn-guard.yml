@@ -18,6 +18,7 @@ jobs:
       - name: Start CFN-Guard
         run: "./scripts/GuardScript.sh"
 
+        
       # - uses: grolston/guard-action@main
         # name: Github Action test
         # run: "cfn-guard validate --data ./templates/ --rules ./customrules/cfn-guard/"
