@@ -29,8 +29,8 @@ jobs:
       
 
       - name: check version CFN-Guard
-        run: "~/.guard/bin/cfn-guard --version"
-        # run: cfn-guard --version
+        # run: "~/.guard/bin/cfn-guard --version"
+        run: cfn-guard --version
 
       - name: Github Action test
         run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
