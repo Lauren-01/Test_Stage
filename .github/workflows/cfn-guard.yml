@@ -16,7 +16,7 @@ jobs:
       #     rule_set: "cis-aws-benchmark-level-1"
 
       - name: Start CFN-Guard
-        run: "./.github/customrules/workflows/GuardScript.sh"
+        run: "./scripts/GuardScript.sh"
 
       # - uses: grolston/guard-action@main
         # name: Github Action test
