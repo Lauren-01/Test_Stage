@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
-      #   with:
-      #     data_directory: './templates/'
-      #     rule_set: "cis-aws-benchmark-level-1"
+      - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
+        with:
+          data_directory: './templates/'
+          rule_set: "cis-aws-benchmark-level-1"
 
       - name: Grant Execute Permissions
         run: chmod +x ./scripts/GuardScript.sh
@@ -32,8 +32,3 @@ jobs:
      
       - name: Github Action test
         run: "~/.guard/bin/cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
-
-
-      # - uses: grolston/guard-action@main
-          # data_directory: '/./templates/'
-          # rule_set: './customrules/cfn-guard/CustomruleTest.guard'
