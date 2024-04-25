@@ -28,7 +28,7 @@ jobs:
         run: "~/.guard/bin/cfn-guard --version"
      
       - name: Github Action test
-        run: "cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
+        run: "~/.guard/bin/cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
 
 
       # - uses: grolston/guard-action@main
