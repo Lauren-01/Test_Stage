@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
-        with:
-          data_directory: './././templates/'
-          rule_set: "cis-aws-benchmark-level-1"
+      # - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
+      #   with:
+      #     data_directory: './././templates/'
+      #     rule_set: "cis-aws-benchmark-level-1"
 
       - uses: grolston/guard-action@main
         with:
           data_directory: './././templates/'
-          rule_set: './customrules/cfn-guard/'
+          rule_set: './customrules/cfn-guard/CustomruleTest.guard'
