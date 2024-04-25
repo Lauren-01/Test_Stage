@@ -22,7 +22,7 @@ jobs:
         run: "./scripts/GuardScript.sh"
 
       - name: Github Action test
-        run: "cfn-guard validate --data ./templates/ --rules ./customrules/cfn-guard/"
+        run: "cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
 
 
       # - uses: grolston/guard-action@main
