@@ -6,5 +6,5 @@ curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloud
 echo ""
 echo "CFN-Guard is installed!"
 
-cfn-guard --version
+#cfn-guard --version
 
