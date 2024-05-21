@@ -15,12 +15,11 @@ jobs:
           data_directory: './templates/'
           rule_set: "cis-aws-benchmark-level-1"
 
-      - name: Install CFN-Guard
-        run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
+      # - name: Install CFN-Guard
+      #   run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 
       - name: run CFN-Guard
         run: |-
-          export PATH=${PATH}:~/.guard/bin
           cfn-guard --version
           cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/
 
