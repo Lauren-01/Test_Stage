@@ -20,6 +20,7 @@ jobs:
 
       - name: run CFN-Guard
         run: |-
+          export PATH=${PATH}:~/.guard/bin
           cfn-guard --version
           cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/
 
