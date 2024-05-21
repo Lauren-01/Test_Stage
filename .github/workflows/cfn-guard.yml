@@ -1,0 +1,42 @@
+name: Setup Cloud Formation Guard with latest version
+run-name: ${{ github.actor }} is checking the code with cfn-guard
+on: 
+  [push]
+  # push:
+  #   branches: [main] #new commits on these branches always trigger
+  # pull_request:
+jobs:
+  cloudformation-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
+        with:
+          data_directory: './templates/'
+          rule_set: "cis-aws-benchmark-level-1"
+
+      - name: Install CFN-Guard
+        run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
+
+      - name: run CFN-Guard
+        run: |-
+          export PATH=${PATH}:~/.guard/bin
+          cfn-guard --version
+          cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/
+
+      # - name: export path
+      #   run: export PATH=${PATH}:~/.guard/bin
+      
+      # - name: echo path
+      #   run: echo $PATH
+      
+      # - name: check environment
+      #   run: env
+      
+
+      # - name: check version CFN-Guard
+      #   # run: "~/.guard/bin/cfn-guard --version"
+      #   run: cfn-guard --version
+
+      # - name: Github Action test
+        # run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"

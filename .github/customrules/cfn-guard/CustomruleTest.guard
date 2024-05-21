@@ -1,0 +1,12 @@
+let ec2_instance = Resources.*[
+    Type == "AWS::EC2::Instance"
+]
+
+
+rule EnforceInstanceType when %ec2_instance !empty {
+    %ec2_instance.Properties.InstanceType == "t2.micro"
+    <<
+      Violation: EC2 instance must use a specific instance type (t2.micro)
+      Fix: Specify the desired instance type (t2.micro) in the InstanceType property
+    >>
+}

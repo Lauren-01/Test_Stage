@@ -1,10 +1,10 @@
 name: Setup Cloud Formation Linter with latest version
 run-name: ${{ github.actor }} is checking the code with cfn-lint
 on: 
-  [push]
-  # push:
-  #   branches: [main] #new commits on these branches always trigger
-  # pull_request:
+  # [push]
+  push:
+    branches: [main] #new commits on these branches always trigger
+  pull_request:
 jobs:
   cloudformation-linter:
     runs-on: ubuntu-latest
@@ -15,4 +15,4 @@ jobs:
         #   command: cfn-lint -t ././templates/EC2.yaml # -a ../custom_rules/
       # -a for custom rules
       - run: cfn-lint --version
-      - run: cfn-lint $GITHUB_WORKSPACE/templates/EC2.yaml -a $GITHUB_WORKSPACE/.github/custom_rules/
+      - run: cfn-lint $GITHUB_WORKSPACE/templates/EC2.yaml -a $GITHUB_WORKSPACE/.github/customrules/cfn-lint/
