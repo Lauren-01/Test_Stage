@@ -1,5 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Testing CloudFormation and CFN-Lint 
+
 Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
@@ -41,20 +42,20 @@ Resources:
         InstanceType: t2.micro
         ImageId: ami-0578b5d25268a4462
 
-  MyVPC:
-    Type: 'AWS::EC2::VPC'
-    Metadata:
-      # cfn_nag:
-      #   rules_to_suppress:
-      #     - id: W60
-      #       reason: "I do not know what it is."
-    Properties:
-        CidrBlock: 10.0.0.0/16
-        EnableDnsSupport: 'true'
-        EnableDnsHostnames: 'true'
-        Tags:
-        - Key: Name
-          Value: cloudar-VPC
+  # MyVPC:
+  #   Type: 'AWS::EC2::VPC'
+  #   Metadata:
+  #     # cfn_nag:
+  #     #   rules_to_suppress:
+  #     #     - id: W60
+  #     #       reason: "I do not know what it is."
+  #   Properties:
+  #       CidrBlock: 10.0.0.0/16
+  #       EnableDnsSupport: 'true'
+  #       EnableDnsHostnames: 'true'
+  #       Tags:
+  #       - Key: Name
+  #         Value: cloudar-VPC
 
   FlowLog:
     Type: 'AWS::EC2::FlowLog'
