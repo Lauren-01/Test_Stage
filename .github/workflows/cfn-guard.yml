@@ -10,19 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: grolston/guard-action@main   # dit is van github zelf gehaald: https://github.com/grolston/guard-action
+      - uses: grolston/guard-action@main   # https://github.com/grolston/guard-action
         with:
           data_directory: './templates/'
           rule_set: "cis-aws-benchmark-level-1"
 
-      - name: Install CFN-Guard
+      - name: Install CFN-Guard # zonder dit werkt het "run" commando niet: CFN-Guard not found
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 
+      
       - name: run CFN-Guard
         run: |-
           export PATH=${PATH}:~/.guard/bin
           cfn-guard --version
-          cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/
+          cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/
 
       # - name: export path
       #   run: export PATH=${PATH}:~/.guard/bin

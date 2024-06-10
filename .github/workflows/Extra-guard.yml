@@ -1,0 +1,17 @@
+name: Setup Cloud Formation Guard with latest version
+run-name: ${{ github.actor }} is checking the code with the premade action cfn-guard [new]
+on: 
+  [push]
+  # push:
+  #   branches: [main] #new commits on these branches always trigger
+  # pull_request:
+jobs:
+  cloudformation-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: CloudFormation Guard validate
+        uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
+        with:
+          rules: ./.github/customrules/cfn-guard/
+          data: templates/
