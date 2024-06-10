@@ -13,5 +13,5 @@ jobs:
       - name: CloudFormation Guard validate
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
-          rules: ./.github/customrules/cfn-guard/
-          data: templates/
+          rules: './.github/customrules/cfn-guard/'
+          data: 'templates/'
