@@ -13,5 +13,5 @@ jobs:
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
           rules: './.github/customrules/cfn-guard/'
-          data: 'templates/EC2.yaml'
+          data: 'templates/'
           
