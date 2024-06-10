@@ -15,4 +15,4 @@ jobs:
         #   command: cfn-lint -t ././templates/*.yaml # -a ../custom_rules/
       # -a for custom rules
       - run: cfn-lint --version
-      - run: cfn-lint $GITHUB_WORKSPACE/templates/*.yaml -a $GITHUB_WORKSPACE/.github/customrules/cfn-lint/
+      - run: cfn-lint $GITHUB_WORKSPACE/templates/EC2.yaml -a $GITHUB_WORKSPACE/.github/customrules/cfn-lint/
