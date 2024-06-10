@@ -14,3 +14,4 @@ jobs:
         with:
           rules: './.github/customrules/cfn-guard/'
           data: 'templates/'
+          
