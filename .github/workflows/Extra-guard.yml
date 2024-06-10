@@ -9,7 +9,6 @@ jobs:
   cloudformation-guard:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
       - name: CloudFormation Guard validate
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
