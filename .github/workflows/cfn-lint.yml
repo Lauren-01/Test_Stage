@@ -3,7 +3,9 @@ run-name: ${{ github.actor }} is checking the code with cfn-lint
 on: 
   # [push]
   push:
-    branches: [main] #new commits on these branches always trigger
+    branches: #new commits on these branches always trigger
+      - main
+      - demo
   pull_request:
 jobs:
   cloudformation-linter:
