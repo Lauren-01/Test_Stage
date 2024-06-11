@@ -10,3 +10,4 @@ rule EnforceInstanceType when %ec2_instance !empty {
       Fix: Specify the desired instance type (t2.micro) in the InstanceType property
     >>
 }
+

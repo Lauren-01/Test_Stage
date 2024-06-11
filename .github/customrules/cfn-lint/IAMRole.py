@@ -25,3 +25,4 @@ class IAMRoleRule(CloudFormationLintRule):
                 matches.append(RuleMatch(['Resources', role], message))
 
         return matches
+

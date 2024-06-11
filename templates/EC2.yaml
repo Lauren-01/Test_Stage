@@ -33,3 +33,4 @@ Outputs:
   PublicDNS:
     Description: 'Public DNS of the created EC2 instance'
     Value: !GetAtt MyEC2Instance.PublicDnsName
+

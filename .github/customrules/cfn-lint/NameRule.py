@@ -42,5 +42,4 @@ class NameRule(CloudFormationLintRule):
         return matches
 
 
-
 # AWS::EC2::Instance Tags[?Key=='Name'] REGEX_MATCH "^cloudar-,+" WARNING "Name must contain Cloudar"

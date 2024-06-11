@@ -41,3 +41,4 @@ jobs:
 
       # - name: Github Action test
         # run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
+

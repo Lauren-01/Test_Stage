@@ -72,3 +72,4 @@ Resources:
 #   BucketNameOutput:
 #     Description: 'Name of the created bucket'
 #     Value: !Ref MyS3Bucket
+
