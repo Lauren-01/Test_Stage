@@ -10,6 +10,11 @@ on:
 jobs:
   cloudformation-guard:
     runs-on: ubuntu-latest
+    permissions:
+      # only required when create-review is true
+      pull-requests: write
+      # only required for workflows in private repositories
+      contents: read
     steps:
       - name: CloudFormation Guard validate
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
