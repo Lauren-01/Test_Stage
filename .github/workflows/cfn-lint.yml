@@ -5,7 +5,7 @@ on:
   push:
     branches: #new commits on these branches always trigger
       - main
-      - demo
+      - Demo
   pull_request:
 jobs:
   cloudformation-linter:
