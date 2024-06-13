@@ -2,10 +2,10 @@ name: Setup Cloud Formation Guard Action
 run-name: ${{ github.actor }} is checking the code with the premade action cfn-guard [new]
 on: 
   # [push]
-  push:
-    branches: #new commits on these branches always trigger
-      - main
-      - Demo_test
+  # push:
+  #   branches: #new commits on these branches always trigger
+  #     - main
+  #     - Demo_test
   pull_request:
 jobs:
   cloudformation-guard:
@@ -13,8 +13,6 @@ jobs:
     permissions:
       # only required when create-review is true
       pull-requests: write
-      # only required for workflows in private repositories
-      contents: read
     steps:
       - name: CloudFormation Guard validate
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
