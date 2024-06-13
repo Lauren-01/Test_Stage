@@ -26,7 +26,7 @@ Resources:
           systemctl enable apache2
       Tags:
         - Key: Name
-          Value: EC2
+          Value: cloudar-EC2
     Region: us-west-1
 
 Outputs:
