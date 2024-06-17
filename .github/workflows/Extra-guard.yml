@@ -2,10 +2,10 @@ name: Setup Cloud Formation Guard Action
 run-name: ${{ github.actor }} is checking the code with the premade action cfn-guard [new]
 on: 
   # [push]
-  # push:
-  #   branches: #new commits on these branches always trigger
-  #     - main
-  #     - Demo_test
+  push:
+    branches: #new commits on these branches always trigger
+      - main
+      - Demo_test
   pull_request:
 jobs:
   cloudformation-guard-action:
