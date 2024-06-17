@@ -20,9 +20,14 @@ jobs:
   cloudformation-guard-custom-rules:
     runs-on: ubuntu-latest
     steps:
-      
       - name: Install CFN-Guard # zonder dit werkt het "run" commando niet: CFN-Guard not found
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
+
+      - name: run CFN-Guard
+        run: |-
+          export PATH=${PATH}:~/.guard/bin
+          cfn-guard --version
+          cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/
 
 
 
@@ -39,12 +44,6 @@ jobs:
       #   run: ~/.guard/bin/cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
 
       
-      - name: run CFN-Guard
-        run: |-
-          export PATH=${PATH}:~/.guard/bin
-          cfn-guard --version
-          cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
-
       # - name: export path
       #   run: export PATH=${PATH}:~/.guard/bin
       
