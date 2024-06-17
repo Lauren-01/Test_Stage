@@ -25,10 +25,10 @@ jobs:
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 
       
-      - name: run CFN-Guard
-        run: |-
-          export PATH=${PATH}:~/.guard/bin
-          cfn-guard --version
+      # - name: run CFN-Guard
+      #   run: |-
+      #     export PATH=${PATH}:~/.guard/bin
+      #     cfn-guard --version
 
       # - name: run the check
       #   run:
@@ -42,6 +42,7 @@ jobs:
       
       # - name: check environment
       #   run: env
+      
       
 
       # - name: check version CFN-Guard
