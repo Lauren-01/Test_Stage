@@ -24,6 +24,20 @@ jobs:
       - name: Install CFN-Guard # zonder dit werkt het "run" commando niet: CFN-Guard not found
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 
+
+
+      - name: Add CFN-Guard to PATH
+        run: echo "$HOME/.guard/bin" >> $GITHUB_PATH
+
+      - name: Verify CFN-Guard installation
+        run: ~/.guard/bin/cfn-guard --version
+
+      - name: List directory contents
+        run: ls -R $GITHUB_WORKSPACE
+
+      - name: Validate CloudFormation templates with custom rules
+        run: ~/.guard/bin/cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
+
       
       # - name: run CFN-Guard
       #   run: |-
@@ -49,6 +63,6 @@ jobs:
       #   # run: "~/.guard/bin/cfn-guard --version"
       #   run: cfn-guard --version
 
-      - name: Github Action test
-        run: "~/.guard/bin/cfn-guard validate --data templates/ --rules ./.github/customrules/cfn-guard/"
+      # - name: Github Action test
+      #   run: "~/.guard/bin/cfn-guard validate --data templates/ --rules ./.github/customrules/cfn-guard/"
 
