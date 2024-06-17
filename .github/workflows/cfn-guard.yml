@@ -15,9 +15,11 @@ jobs:
           data_directory: './templates/'
           rule_set: "cis-aws-benchmark-level-1"
 
+  cloudformation-guard-custom-rules:
+    runs-on: ubuntu-latest
+    steps:
       - name: Install CFN-Guard # zonder dit werkt het "run" commando niet: CFN-Guard not found
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
-
       
       - name: run CFN-Guard
         run: |-
