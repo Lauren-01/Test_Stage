@@ -26,27 +26,24 @@ jobs:
 
 
 
-      - name: Add CFN-Guard to PATH
-        run: echo "$HOME/.guard/bin" >> $GITHUB_PATH
+      # - name: Add CFN-Guard to PATH
+      #   run: echo "$HOME/.guard/bin" >> $GITHUB_PATH
 
-      - name: Verify CFN-Guard installation
-        run: ~/.guard/bin/cfn-guard --version
+      # - name: Verify CFN-Guard installation
+      #   run: ~/.guard/bin/cfn-guard --version
 
-      - name: List directory contents
-        run: ls -R $GITHUB_WORKSPACE
+      # - name: List directory contents
+      #   run: ls -R $GITHUB_WORKSPACE
 
-      - name: Validate CloudFormation templates with custom rules
-        run: ~/.guard/bin/cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
+      # - name: Validate CloudFormation templates with custom rules
+      #   run: ~/.guard/bin/cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
 
       
-      # - name: run CFN-Guard
-      #   run: |-
-      #     export PATH=${PATH}:~/.guard/bin
-      #     cfn-guard --version
-
-      # - name: run the check
-      #   run:
-      #     cfn-guard validate --data $GITHUB_WORKSPACE/templates/ --rules $GITHUB_WORKSPACE/.github/customrules/cfn-guard/
+      - name: run CFN-Guard
+        run: |-
+          export PATH=${PATH}:~/.guard/bin
+          cfn-guard --version
+          cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
 
       # - name: export path
       #   run: export PATH=${PATH}:~/.guard/bin
