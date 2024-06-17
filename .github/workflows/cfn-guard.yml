@@ -43,12 +43,12 @@ jobs:
       # - name: check environment
       #   run: env
       
-      
+
 
       # - name: check version CFN-Guard
       #   # run: "~/.guard/bin/cfn-guard --version"
       #   run: cfn-guard --version
 
       - name: Github Action test
-        run: "~/.guard/bin/cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/"
+        run: "~/.guard/bin/cfn-guard validate --data templates/ --rules ./.github/customrules/cfn-guard/"
 
