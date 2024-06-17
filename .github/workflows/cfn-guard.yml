@@ -1,14 +1,12 @@
 name: Setup Cloud Formation Guard with latest version
 run-name: ${{ github.actor }} is checking the code with cfn-guard
 on: 
-  # [push]
-  push:
-    branches: #new commits on these branches always trigger
-      - main
-      - Demo_test
-  pull_request:
+  [push]
+  # push:
+  #   branches: [main] #new commits on these branches always trigger
+  # pull_request:
 jobs:
-  cloudformation-guard-grolston:
+  cloudformation-guard:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,33 +15,16 @@ jobs:
           data_directory: './templates/'
           rule_set: "cis-aws-benchmark-level-1"
 
-  cloudformation-guard-custom-rules:
-    runs-on: ubuntu-latest
-    steps:
       - name: Install CFN-Guard # zonder dit werkt het "run" commando niet: CFN-Guard not found
         run: curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/aws-cloudformation/cloudformation-guard/main/install-guard.sh | sh
 
+      
       - name: run CFN-Guard
         run: |-
           export PATH=${PATH}:~/.guard/bin
           cfn-guard --version
           cfn-guard validate --data ./templates/ --rules ./.github/customrules/cfn-guard/
 
-
-
-      # - name: Add CFN-Guard to PATH
-      #   run: echo "$HOME/.guard/bin" >> $GITHUB_PATH
-
-      # - name: Verify CFN-Guard installation
-      #   run: ~/.guard/bin/cfn-guard --version
-
-      # - name: List directory contents
-      #   run: ls -R $GITHUB_WORKSPACE
-
-      # - name: Validate CloudFormation templates with custom rules
-      #   run: ~/.guard/bin/cfn-guard validate --data templates/ --rules .github/customrules/cfn-guard/
-
-      
       # - name: export path
       #   run: export PATH=${PATH}:~/.guard/bin
       
@@ -54,11 +35,9 @@ jobs:
       #   run: env
       
 
-
       # - name: check version CFN-Guard
       #   # run: "~/.guard/bin/cfn-guard --version"
       #   run: cfn-guard --version
 
       # - name: Github Action test
-      #   run: "~/.guard/bin/cfn-guard validate --data templates/ --rules ./.github/customrules/cfn-guard/"
-
+        # run: "~/.guard/bin/cfn-guard validate --data ./templates/EC2.yaml --rules ./.github/customrules/cfn-guard/"
