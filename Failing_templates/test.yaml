@@ -18,3 +18,4 @@ Resources:
       MasterUsername: 'master'
       MasterUserPassword: 'password'
       StorageEncrypted: false
+      
