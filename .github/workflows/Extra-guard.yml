@@ -8,7 +8,7 @@ on:
       - Demo_test
   pull_request:
 jobs:
-  cloudformation-guard-action:
+  cloudformation-guard-action-custom-rules:
     runs-on: ubuntu-latest
     permissions:
       # only required when create-review is true
