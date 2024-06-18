@@ -22,7 +22,7 @@ jobs:
           create-review: true
 
       - name: path
-        run: ls .github/customrules/
+        run: ls .github/customrules/cfn-guard
           
   # cloudformation-guard-ruleset-action:
   #   runs-on: ubuntu-latest
