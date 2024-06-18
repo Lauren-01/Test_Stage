@@ -22,7 +22,7 @@ jobs:
           create-review: true
 
       - name: path
-        run: ls ..
+        run: ls .github/customrules/
           
   # cloudformation-guard-ruleset-action:
   #   runs-on: ubuntu-latest
