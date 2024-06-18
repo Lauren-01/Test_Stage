@@ -49,7 +49,7 @@ jobs:
           RULES_URL="https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/rules/aws"
 
           # Controleer of de download map bestaat, zo niet, maak deze aan
-          RULES_DIR=".github/customrules/cfn-guard/downloaded_rulesets"
+          RULES_DIR=".github/customrules/downloaded_rulesets"
           mkdir -p "$RULES_DIR"
 
           # Download het JSON-bestand van de opgegeven URL
@@ -81,7 +81,7 @@ jobs:
           echo "All rules downloaded successfully."
 
       - name: List downloaded rulesets for debugging
-        run: ls -R .github/customrules/cfn-guard/downloaded_rulesets
+        run: ls -R .github/customrules/downloaded_rulesets
 
 
       # - name: download ruleset
@@ -90,6 +90,6 @@ jobs:
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
-          rules: '.github/customrules/cfn-guard/downloaded_rulesets'
+          rules: './.github/customrules/downloaded_rulesets'
           data: './templates/'
           create-review: true
