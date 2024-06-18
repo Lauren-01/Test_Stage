@@ -90,6 +90,6 @@ jobs:
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
-          rules: './.github/customrules/downloaded_rulesets'
+          rules: '.github/customrules/downloaded_rulesets'
           data: './templates/'
           create-review: true
