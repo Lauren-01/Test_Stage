@@ -31,8 +31,8 @@ jobs:
         run: echo "JSON_FILE=rule_set_cis_aws_benchmark_level_1.json" >> $GITHUB_ENV
 
       - name: download ruleset
-        run: '../customrules/DownloadRules.sh'
-        
+        run: '.github/customrules/DownloadRules.sh'
+
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
