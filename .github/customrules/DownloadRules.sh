@@ -7,13 +7,13 @@ if [ -z "$JSON_FILE" ]; then
 fi
 
 # Stel de basis-URL in voor de mappings
-MAPPINGS_URL = https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/mappings
+MAPPINGS_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/mappings"
 
 # Stel de basis-URL in voor de regels
 RULES_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/rules/aws"
 
 # Controleer of de download map bestaat, zo niet, maak deze aan
-RULES_DIR=".github/customrules/cfn-guard/downloaded_rulesets"
+RULES_DIR=".github/customrules/downloaded_rulesets"
 
 # Download het JSON-bestand van de opgegeven URL
 curl -o "$MAPPINGS_URL/$JSON_FILE"

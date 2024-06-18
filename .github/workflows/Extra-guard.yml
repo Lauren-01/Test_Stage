@@ -30,6 +30,9 @@ jobs:
       - name: Set environment variable
         run: echo "JSON_FILE=rule_set_cis_aws_benchmark_level_1.json" >> $GITHUB_ENV
 
+      - name: Install jq
+        run: sudo apt-get install jq
+
       - name: download ruleset
         run: '.github/customrules/DownloadRules.sh'
 
