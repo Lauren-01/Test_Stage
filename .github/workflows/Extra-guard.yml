@@ -27,17 +27,12 @@ jobs:
   cloudformation-guard-ruleset-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Get the latest rule set
-        run: |
-          # Download specifieke ruleset van GitHub
-          curl -O https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/mappings/rule_set_cis_aws_benchmark_level_1.json
+      - name: Set environment variable
+        run: echo "JSON_FILE=rule_set_cis_aws_benchmark_level_1.json" >> $GITHUB_ENV
 
-          jq -r '.rules[].source' rule_set_cis_aws_benchmark_level_1.json | while read -r rule; do
-            rule_url="https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/${rule#./}"
-            rule_path="downloaded_rulesets/$(basename $rule)"
-            curl -o $rule_path $rule_url
-          done
-
+      - name: download ruleset
+        run: '../customrules/DownloadRules.sh'
+        
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
         with:
