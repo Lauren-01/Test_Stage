@@ -34,7 +34,7 @@ jobs:
         run: sudo apt-get install jq
 
       - name: download ruleset
-        run: '.github/customrules/DownloadRules.sh'
+        run: './.github/customrules/DownloadRules.sh'
 
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
