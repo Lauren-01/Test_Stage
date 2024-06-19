@@ -76,13 +76,10 @@ jobs:
           # Verwijder eventuele regels die er nog in stonden zodat de nieuwe enkel getest worden
           rm -f $RULES_DIR/*
 
-          echo "map is leeg!"
-
           # Gebruik jq om de regels te extraheren en download de individuele regels
           jq -r '.mappings[]?.guardFilePath' "$JSON_FILE" | while read -r rule; do
             rule_url="$RULES_URL/$rule"
             local_rule_path="$RULES_DIR/$(basename $rule)"
-            echo "$local_rule_path"
             echo "Downloading $local_rule_path from $rule_url"
             curl -s -o "$local_rule_path" "$rule_url"
 
@@ -100,7 +97,9 @@ jobs:
           echo "All rules downloaded successfully."
 
       - name: List downloaded rulesets for debugging
-        run: ls -R .github/customrules/downloaded_rulesets
+        run: |
+          ls -R .github/customrules/downloaded_rulesets
+          cat .github/customrules/downloaded_rulesets/iam_no_inline_policy_check.guard
 
 
       # - name: download ruleset
