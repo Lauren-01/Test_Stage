@@ -5,9 +5,9 @@ Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-        BucketName: cloudar-bucket
+        BucketName: s3-bucket
         VersioningConfiguration:
-            Status: Enabled
+            Status: suspended
         LoggingConfiguration:
             DestinationBucketName: myloggingBucket
         BucketEncryption:
@@ -38,7 +38,7 @@ Resources:
   MyEC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t2.nano
       ImageId: ami-0578b5d25268a4462
       Tags:
         - Key: Name
