@@ -52,7 +52,7 @@ jobs:
           # MAPPINGS_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/mappings"
 
           # # Stel de basis-URL in voor de regels
-          # RULES_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/rules/aws"
+          # RULES_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/"
 
           # Controleer of de download map bestaat, zo niet, maak deze aan
           RULES_DIR=".github/customrules/downloaded_rulesets"
@@ -81,7 +81,6 @@ jobs:
           # Gebruik jq om de regels te extraheren en download de individuele regels
           jq -r '.mappings[]?.guardFilePath' "$JSON_FILE" | while read -r rule; do
             rule_url="$RULES_URL/$rule"
-            echo "$rule_url"
             local_rule_path="$RULES_DIR/$(basename $rule)"
             echo "$local_rule_path"
             echo "Downloading $local_rule_path from $rule_url"
