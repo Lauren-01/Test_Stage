@@ -24,7 +24,7 @@ jobs:
       - name: path
         run: ls .github/customrules/cfn-guard
           
-  cloudformation-guard-ruleset-action:
+  cloudformation-guard-ruleset:
     runs-on: ubuntu-latest
     steps:
       - name: Set environment variable
