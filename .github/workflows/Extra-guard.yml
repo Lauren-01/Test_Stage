@@ -76,7 +76,6 @@ jobs:
             local_rule_path="$RULES_DIR/$(basename $rule)"
             echo "Downloading $local_rule_path from $rule_url"
             curl -s -o "$local_rule_path" "$rule_url"
-            cat $rule_url
 
             # Controleer of het bestand correct is gedownload
             if [ ! -s "$local_rule_path" ]; then
