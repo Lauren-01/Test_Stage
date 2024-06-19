@@ -55,6 +55,12 @@ jobs:
           # Download het JSON-bestand van de opgegeven URL
           curl -o "$JSON_FILE" "$MAPPINGS_URL/$JSON_FILE"
 
+          
+          # Controleer de inhoud van het gedownloade JSON-bestand
+          echo "Content of $JSON_FILE:"
+          cat "$JSON_FILE"
+
+
           # Controleer of het bestand correct is gedownload
           if [ ! -s "$JSON_FILE" ]; then
             echo "Failed to download $JSON_FILE or the file is empty."
