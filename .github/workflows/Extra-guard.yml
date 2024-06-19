@@ -82,20 +82,12 @@ jobs:
               echo "Failed to download $local_rule_path or the file is empty."
               exit 1
             fi
-
-            # Toon inhoud van het gedownloade bestand voor debugging
-            echo "Content of $local_rule_path:"
-            cat "$local_rule_path"
           done
 
           echo "All rules downloaded successfully."
 
       - name: List downloaded rulesets for debugging
         run: ls -R .github/customrules/downloaded_rulesets
-
-
-      # - name: download ruleset
-      #   run: './.github/customrules/DownloadRules.sh'
 
       - name: Validate ruleset
         uses: aws-cloudformation/cloudformation-guard@action-v0.0.3
