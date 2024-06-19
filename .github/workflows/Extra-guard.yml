@@ -82,7 +82,7 @@ jobs:
             local_rule_path="$RULES_DIR/$(basename $rule)"
             echo "Downloading $local_rule_path from $rule_url"
             curl -s -o "$local_rule_path" "$rule_url"
-            cat $rule_url/iam_no_inline_policy_check.guard
+            cat $rule_url
 
             # Controleer of het bestand correct is gedownload
             if [ ! -s "$local_rule_path" ]; then
@@ -93,8 +93,6 @@ jobs:
             # Toon inhoud van het gedownloade bestand voor debugging
             echo "Content of $local_rule_path:"
             cat "$local_rule_path"
-            cat $local_rule_path/iam_no_inline_policy_check.guard
-
           done
 
           echo "All rules downloaded successfully."
