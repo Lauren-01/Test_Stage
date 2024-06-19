@@ -7,7 +7,7 @@ Resources:
     Properties:
         BucketName: s3-bucket
         VersioningConfiguration:
-            Status: suspended
+            Status: Suspended
         LoggingConfiguration:
             DestinationBucketName: myloggingBucket
         BucketEncryption:
