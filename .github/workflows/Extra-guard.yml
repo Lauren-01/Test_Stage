@@ -45,14 +45,14 @@ jobs:
           # Stel de basis-URL in voor de mappings
           MAPPINGS_URL="https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/mappings"
           
-          # Stel de basis-URL in voor de regels
-          RULES_URL="https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/"
+          # # Stel de basis-URL in voor de regels
+          # RULES_URL="https://raw.githubusercontent.com/aws-cloudformation/aws-guard-rules-registry/main/"
 
           # # Stel de basis-URL in voor de mappings
           # MAPPINGS_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/mappings"
 
-          # # Stel de basis-URL in voor de regels
-          # RULES_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/"
+          # Stel de basis-URL in voor de regels
+          RULES_URL="https://github.com/aws-cloudformation/aws-guard-rules-registry/tree/main/"
 
           # Controleer of de download map bestaat, zo niet, maak deze aan
           RULES_DIR=".github/customrules/downloaded_rulesets"
