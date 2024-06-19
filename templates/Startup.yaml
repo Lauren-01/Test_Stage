@@ -35,7 +35,6 @@ Resources:
               - s3:GetObject
             Resource: !Sub arn:aws:s3:::${MyS3Bucket}/*
 
-
   MyEC2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
@@ -44,20 +43,6 @@ Resources:
       Tags:
         - Key: Name
           Value: cloudar-ec2
-  # MyVPC:
-  #   Type: 'AWS::EC2::VPC'
-  #   Metadata:
-  #     # cfn_nag:
-  #     #   rules_to_suppress:
-  #     #     - id: W60
-  #     #       reason: "I do not know what it is."
-  #   Properties:
-  #       CidrBlock: 10.0.0.0/16
-  #       EnableDnsSupport: 'true'
-  #       EnableDnsHostnames: 'true'
-  #       Tags:
-  #       - Key: Name
-  #         Value: cloudar-VPC
 
   FlowLog:
     Type: 'AWS::EC2::FlowLog'
@@ -67,9 +52,3 @@ Resources:
         ResourceId: MyVPC
         ResourceType: VPC
         TrafficType: ALL
-
-# Outputs:
-#   BucketNameOutput:
-#     Description: 'Name of the created bucket'
-#     Value: !Ref MyS3Bucket
-
