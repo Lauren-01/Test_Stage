@@ -64,6 +64,8 @@ jobs:
           # Verwijder eventuele regels die er nog in stonden zodat de nieuwe enkel getest worden
           rm -f $RULES_DIR/*
 
+          echo "map is leeg!"
+
           # Gebruik jq om de regels te extraheren en download de individuele regels
           jq -r '.mappings[]?.guardFilePath' "$JSON_FILE" | while read -r rule; do
             rule_url="$RULES_URL/$rule"
