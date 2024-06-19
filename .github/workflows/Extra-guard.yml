@@ -82,8 +82,6 @@ jobs:
             cat "$local_rule_path"
           done
 
-          done
-
           echo "All rules downloaded successfully."
 
       - name: List downloaded rulesets for debugging
