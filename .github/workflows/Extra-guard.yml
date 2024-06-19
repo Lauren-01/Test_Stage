@@ -69,7 +69,9 @@ jobs:
           # Gebruik jq om de regels te extraheren en download de individuele regels
           jq -r '.mappings[]?.guardFilePath' "$JSON_FILE" | while read -r rule; do
             rule_url="$RULES_URL/$rule"
+            echo "$rule_url"
             local_rule_path="$RULES_DIR/$(basename $rule)"
+            echo "$local_rule_path"
             echo "Downloading $local_rule_path from $rule_url"
             curl -s -o "$local_rule_path" "$rule_url"
 
