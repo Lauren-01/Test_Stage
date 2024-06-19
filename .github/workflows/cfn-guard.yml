@@ -5,7 +5,7 @@ on:
   push:
     branches: #new commits on these branches always trigger
       - main
-      - Demo_test
+      - Presentation
   pull_request:
 jobs:
   cloudformation-guard-action-custom-rules:
@@ -26,6 +26,9 @@ jobs:
           
   cloudformation-guard-ruleset:
     runs-on: ubuntu-latest
+    permissions:
+      # only required when create-review is true
+      pull-requests: write
     steps:
       - name: Set environment variable
         run: echo "JSON_FILE=rule_set_cis_aws_benchmark_level_1.json" >> $GITHUB_ENV
